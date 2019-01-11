@@ -1,0 +1,3060 @@
+ -
+ -
+ -
+ httpd
+ /
+ httpd
+ /
+ trunk
+ /
+ modules
+ /
+ ssl
+ /
+ssl_engine_kernel.c	2005
+ /
+06
+ /
+03
+12
+:43
+:35
+	179780
+ +
+ +
+ +
+ httpd
+ /
+ httpd
+ /
+ trunk
+ /
+ modules
+ /
+ ssl
+ /
+ssl_engine_kernel.c	2005
+ /
+06
+ /
+03
+12
+:54
+:53
+	179781
+ -
+1408
+ ,
+7
+ +
+1408
+ ,
+7
+ BIO_printf
+ (
+ bio
+ ,
+", nextUpdate: "
+ )
+ ;
+ ASN1_UTCTIME_print
+ (
+ bio
+ ,
+X509
+ (
+ crl
+ )
+ )
+ ;
+ -
+ n
+=
+ BIO_read
+ (
+ bio
+ ,
+ buff
+ ,
+ sizeof
+ (
+ buff
+ )
+ )
+ ;
+ +
+ n
+=
+ BIO_read
+ (
+ bio
+ ,
+ buff
+ ,
+ sizeof
+ (
+ buff
+ )
+ -
+1
+ )
+ ;
+ buff[n]
+=
+'\0
+ ;
+ BIO_free
+ (
+ bio
+ )
+ ;
+ diff
+ -
+ u
+ -
+8
+ -
+ p
+ -
+r3.263
+ nsCSSRendering.cpp
+
+ -
+ -
+ -
+ a
+ /
+ layout
+ /
+ base
+ /
+nsCSSRendering.cpp	2
+ Aug
+2005
+20
+:11
+:09
+ -
+0000
+	3
+.263
+ +
+ +
+ +
+ b
+ /
+ layout
+ /
+ base
+ /
+nsCSSRendering.cpp	1
+ Nov
+2005
+19
+:44
+:57
+ -
+0000
+ -
+3626
+ ,
+20
+ +
+3626
+ ,
+24
+ nsCSSRendering::RenderSide
+ (
+ nsFloatPoint
+ case
+ NS_STYLE_BORDER_STYLE_AUTO:
+
+ case
+ NS_STYLE_BORDER_STYLE_SOLID:
+
+polypath[0
+=
+ NSToCoordRound
+ (
+aPoints[0
+ )
+ ;
+polypath[0
+=
+ NSToCoordRound
+ (
+aPoints[0
+ )
+ ;
+ curIndex
+=
+1
+ ;
+ GetPath
+ (
+ aPoints
+ ,
+ polypath
+ ,
+ &
+ curIndex
+ ,
+ eOutside
+ ,
+ c1Index
+ )
+ ;
+ c2Index
+=
+ curIndex
+ ;
+ +
+ if
+ (
+ curIndex
+ >=
+ MAXPOLYPATHSIZE
+ )
+ +
+ return
+ ;
+ polypath[curIndex].x
+=
+ NSToCoordRound
+ (
+aPoints[6
+ )
+ ;
+ polypath[curIndex].y
+=
+ NSToCoordRound
+ (
+aPoints[6
+ )
+ ;
+ curIndex
+ +
+ +
+ ;
+ GetPath
+ (
+ aPoints
+ ,
+ polypath
+ ,
+ &
+ curIndex
+ ,
+ eInside
+ ,
+ junk
+ )
+ ;
+ +
+ if
+ (
+ curIndex
+ >=
+ MAXPOLYPATHSIZE
+ )
+ +
+ return
+ ;
+ polypath[curIndex].x
+=
+ NSToCoordRound
+ (
+aPoints[0
+ )
+ ;
+ polypath[curIndex].y
+=
+ NSToCoordRound
+ (
+aPoints[0
+ )
+ ;
+ curIndex
+ +
+ +
+ ;
+ aRenderingContext.FillPolygon
+ (
+ polypath
+ ,
+ curIndex
+ )
+ ;
+ break
+ ;
+ case
+ NS_STYLE_BORDER_STYLE_DOUBLE:
+
+polypath[0
+=
+ NSToCoordRound
+ (
+aPoints[0
+ )
+ ;
+ -
+3661
+ ,
+39
+ +
+3665
+ ,
+47
+ nsCSSRendering::RenderSide
+ (
+ nsFloatPoint
+ {
+ const
+ nsStyleBackground
+ *
+ bgColor
+=
+ nsCSSRendering::FindNonTransparentBackground
+ (
+ aStyleContext
+ )
+ ;
+ aRenderingContext.SetColor
+ (
+ MakeBevelColor
+ (
+ aSide
+ ,
+ border_Style
+ ,
+ bgColor
+ -
+ >
+ BackgroundColor
+ ,
+ sideColor
+ ,
+ PR_TRUE
+ )
+ )
+ ;
+polypath[0
+=
+ NSToCoordRound
+ (
+aPoints[0
+ )
+ ;
+polypath[0
+=
+ NSToCoordRound
+ (
+aPoints[0
+ )
+ ;
+ curIndex
+=
+1
+ ;
+ GetPath
+ (
+ aPoints
+ ,
+ polypath
+ ,
+ &
+ curIndex
+ ,
+ eOutside
+ ,
+ c1Index
+ )
+ ;
+ +
+ if
+ (
+ curIndex
+ >=
+ MAXPOLYPATHSIZE
+ )
+ +
+ return
+ ;
+ polypath[curIndex].x
+=
+ NSToCoordRound
+ (
+ (
+aPoints[5
+ +
+aPoints[6
+ )
+ /
+2
+.0
+ f
+ )
+ ;
+ polypath[curIndex].y
+=
+ NSToCoordRound
+ (
+ (
+aPoints[5
+ +
+aPoints[6
+ )
+ /
+2
+.0
+ f
+ )
+ ;
+ curIndex
+ +
+ +
+ ;
+ GetPath
+ (
+ aPoints
+ ,
+ polypath
+ ,
+ &
+ curIndex
+ ,
+ eCalcRev
+ ,
+ c1Index
+ ,
+.5
+ )
+ ;
+ +
+ if
+ (
+ curIndex
+ >=
+ MAXPOLYPATHSIZE
+ )
+ +
+ return
+ ;
+ polypath[curIndex].x
+=
+ NSToCoordRound
+ (
+aPoints[0
+ )
+ ;
+ polypath[curIndex].y
+=
+ NSToCoordRound
+ (
+aPoints[0
+ )
+ ;
+ curIndex
+ +
+ +
+ ;
+ aRenderingContext.FillPolygon
+ (
+ polypath
+ ,
+ curIndex
+ )
+ ;
+ aRenderingContext.SetColor
+ (
+ MakeBevelColor
+ (
+ aSide
+ ,
+ (
+ (
+ border_Style
+ ==
+ NS_STYLE_BORDER_STYLE_RIDGE
+ )
+ NS_STYLE_BORDER_STYLE_GROOVE
+ NS_STYLE_BORDER_STYLE_RIDGE
+ )
+ ,
+ bgColor
+ -
+ >
+ BackgroundColor
+ ,
+ sideColor
+ ,
+ PR_TRUE
+ )
+ )
+ ;
+polypath[0
+=
+ NSToCoordRound
+ (
+ (
+aPoints[0
+ +
+aPoints[11
+ )
+ /
+2
+.0
+ f
+ )
+ ;
+polypath[0
+=
+ NSToCoordRound
+ (
+ (
+aPoints[0
+ +
+aPoints[11
+ )
+ /
+2
+.0
+ f
+ )
+ ;
+ curIndex
+=
+1
+ ;
+ GetPath
+ (
+ aPoints
+ ,
+ polypath
+ ,
+ &
+ curIndex
+ ,
+ eCalc
+ ,
+ c1Index
+ ,
+.5
+ )
+ ;
+ +
+ if
+ (
+ curIndex
+ >=
+ MAXPOLYPATHSIZE
+ )
+ +
+ return
+ ;
+ polypath[curIndex].x
+=
+ NSToCoordRound
+ (
+aPoints[6
+ )
+ ;
+ polypath[curIndex].y
+=
+ NSToCoordRound
+ (
+aPoints[6
+ )
+ ;
+ curIndex
+ +
+ +
+ ;
+ GetPath
+ (
+ aPoints
+ ,
+ polypath
+ ,
+ &
+ curIndex
+ ,
+ eInside
+ ,
+ c1Index
+ )
+ ;
+ +
+ if
+ (
+ curIndex
+ >=
+ MAXPOLYPATHSIZE
+ )
+ +
+ return
+ ;
+ polypath[curIndex].x
+=
+ NSToCoordRound
+ (
+aPoints[0
+ )
+ ;
+ polypath[curIndex].y
+=
+ NSToCoordRound
+ (
+aPoints[0
+ )
+ ;
+ curIndex
+ +
+ +
+ ;
+ aRenderingContext.FillPolygon
+ (
+ polypath
+ ,
+ curIndex
+ )
+ ;
+ }
+ break
+ ;
+ default:
+
+ break
+ ;
+ -
+3874
+ ,
+95
+ +
+3886
+ ,
+122
+ RoundedRect::GetRoundedBorders
+ (
+ QBCurve
+ &
+ *
+ aCurIndex
+ -
+ -
+ the
+ index
+ that
+ points
+ to
+ the
+ last
+ element
+ of
+ the
+ array
+
+ *
+ aPathType
+ -
+ -
+ what
+ kind
+ of
+ path
+ that
+ should
+ be
+ returned
+
+ *
+ aFrac
+ -
+ -
+ the
+ inset
+ amount
+ for
+ a
+ eCalc
+ type
+ path
+
+ *
+ /
+ static
+ void
+ GetPath
+ (
+ nsFloatPoint
+ aPoints[]
+ ,
+ nsPoint
+ aPolyPath[]
+ ,
+PRInt32
+ *
+ aCurIndex
+ ,
+ ePathTypes
+ aPathType
+ ,
+PRInt32
+ &
+ aC1Index
+ ,
+ float
+ aFrac
+ )
+ {
+ QBCurve
+ thecurve
+ ;
+ +
+ +
+ if
+ (
+ *
+ aCurIndex
+ >=
+ MAXPOLYPATHSIZE
+ )
+ +
+ return
+ ;
+ switch
+ (
+ aPathType
+ )
+ {
+ case
+ eOutside:
+
+ thecurve.SetPoints
+ (
+aPoints[0
+ ,
+aPoints[0
+ ,
+aPoints[1
+ ,
+aPoints[1
+ ,
+aPoints[2
+ ,
+aPoints[2
+ )
+ ;
+ thecurve.SubDivide
+ (
+ nsnull
+ ,
+ aPolyPath
+ ,
+ aCurIndex
+ )
+ ;
+ aC1Index
+=
+ *
+ aCurIndex
+ ;
+ +
+ if
+ (
+ *
+ aCurIndex
+ >=
+ MAXPOLYPATHSIZE
+ )
+ +
+ return
+ ;
+ aPolyPath[
+ *
+ aCurIndex].x
+=
+ (
+ nscoord
+ )
+aPoints[3
+ ;
+ aPolyPath[
+ *
+ aCurIndex].y
+=
+ (
+ nscoord
+ )
+aPoints[3
+ ;
+ (
+ *
+ aCurIndex
+ )
+ +
+ +
+ ;
+ +
+ if
+ (
+ *
+ aCurIndex
+ >=
+ MAXPOLYPATHSIZE
+ )
+ +
+ return
+ ;
+ thecurve.SetPoints
+ (
+aPoints[3
+ ,
+aPoints[3
+ ,
+aPoints[4
+ ,
+aPoints[4
+ ,
+aPoints[5
+ ,
+aPoints[5
+ )
+ ;
+ thecurve.SubDivide
+ (
+ nsnull
+ ,
+ aPolyPath
+ ,
+ aCurIndex
+ )
+ ;
+ break
+ ;
+ case
+ eInside:
+
+ thecurve.SetPoints
+ (
+aPoints[6
+ ,
+aPoints[6
+ ,
+aPoints[7
+ ,
+aPoints[7
+ ,
+aPoints[8
+ ,
+aPoints[8
+ )
+ ;
+ thecurve.SubDivide
+ (
+ nsnull
+ ,
+ aPolyPath
+ ,
+ aCurIndex
+ )
+ ;
+ +
+ if
+ (
+ *
+ aCurIndex
+ >=
+ MAXPOLYPATHSIZE
+ )
+ +
+ return
+ ;
+ aPolyPath[
+ *
+ aCurIndex].x
+=
+ (
+ nscoord
+ )
+aPoints[9
+ ;
+ aPolyPath[
+ *
+ aCurIndex].y
+=
+ (
+ nscoord
+ )
+aPoints[9
+ ;
+ (
+ *
+ aCurIndex
+ )
+ +
+ +
+ ;
+ +
+ if
+ (
+ *
+ aCurIndex
+ >=
+ MAXPOLYPATHSIZE
+ )
+ +
+ return
+ ;
+ thecurve.SetPoints
+ (
+aPoints[9
+ ,
+aPoints[9
+ ,
+aPoints[10
+ ,
+aPoints[10
+ ,
+aPoints[11
+ ,
+aPoints[11
+ )
+ ;
+ thecurve.SubDivide
+ (
+ nsnull
+ ,
+ aPolyPath
+ ,
+ aCurIndex
+ )
+ ;
+ break
+ ;
+ case
+ eCalc:
+
+ thecurve.SetPoints
+ (
+ (
+aPoints[0
+ +
+aPoints[11
+ )
+ /
+2
+.0
+ f
+ ,
+ (
+aPoints[0
+ +
+aPoints[11
+ )
+ /
+2
+.0
+ f
+ ,
+ (
+aPoints[1
+ +
+aPoints[10
+ )
+ /
+2
+.0
+ f
+ ,
+ (
+aPoints[1
+ +
+aPoints[10
+ )
+ /
+2
+.0
+ f
+ ,
+ (
+aPoints[2
+ +
+aPoints[9
+ )
+ /
+2
+.0
+ f
+ ,
+ (
+aPoints[2
+ +
+aPoints[9
+ )
+ /
+2
+.0
+ f
+ )
+ ;
+ thecurve.SubDivide
+ (
+ nsnull
+ ,
+ aPolyPath
+ ,
+ aCurIndex
+ )
+ ;
+ +
+ if
+ (
+ *
+ aCurIndex
+ >=
+ MAXPOLYPATHSIZE
+ )
+ +
+ return
+ ;
+ aPolyPath[
+ *
+ aCurIndex].x
+=
+ (
+ nscoord
+ )
+ (
+ (
+aPoints[3
+ +
+aPoints[8
+ )
+ /
+2
+.0
+ f
+ )
+ ;
+ aPolyPath[
+ *
+ aCurIndex].y
+=
+ (
+ nscoord
+ )
+ (
+ (
+aPoints[3
+ +
+aPoints[8
+ )
+ /
+2
+.0
+ f
+ )
+ ;
+ (
+ *
+ aCurIndex
+ )
+ +
+ +
+ ;
+ +
+ if
+ (
+ *
+ aCurIndex
+ >=
+ MAXPOLYPATHSIZE
+ )
+ +
+ return
+ ;
+ thecurve.SetPoints
+ (
+ (
+aPoints[3
+ +
+aPoints[8
+ )
+ /
+2
+.0
+ f
+ ,
+ (
+aPoints[3
+ +
+aPoints[8
+ )
+ /
+2
+.0
+ f
+ ,
+ (
+aPoints[4
+ +
+aPoints[7
+ )
+ /
+2
+.0
+ f
+ ,
+ (
+aPoints[4
+ +
+aPoints[7
+ )
+ /
+2
+.0
+ f
+ ,
+ (
+aPoints[5
+ +
+aPoints[6
+ )
+ /
+2
+.0
+ f
+ ,
+ (
+aPoints[5
+ +
+aPoints[6
+ )
+ /
+2
+.0
+ f
+ )
+ ;
+ thecurve.SubDivide
+ (
+ nsnull
+ ,
+ aPolyPath
+ ,
+ aCurIndex
+ )
+ ;
+ break
+ ;
+ case
+ eCalcRev:
+
+ thecurve.SetPoints
+ (
+ (
+aPoints[5
+ +
+aPoints[6
+ )
+ /
+2
+.0
+ f
+ ,
+ (
+aPoints[5
+ +
+aPoints[6
+ )
+ /
+2
+.0
+ f
+ ,
+ (
+aPoints[4
+ +
+aPoints[7
+ )
+ /
+2
+.0
+ f
+ ,
+ (
+aPoints[4
+ +
+aPoints[7
+ )
+ /
+2
+.0
+ f
+ ,
+ (
+aPoints[3
+ +
+aPoints[8
+ )
+ /
+2
+.0
+ f
+ ,
+ (
+aPoints[3
+ +
+aPoints[8
+ )
+ /
+2
+.0
+ f
+ )
+ ;
+ thecurve.SubDivide
+ (
+ nsnull
+ ,
+ aPolyPath
+ ,
+ aCurIndex
+ )
+ ;
+ aPolyPath[
+ *
+ aCurIndex].x
+=
+ (
+ nscoord
+ )
+ (
+ (
+aPoints[2
+ +
+aPoints[9
+ )
+ /
+2
+.0
+ f
+ )
+ ;
+ aPolyPath[
+ *
+ aCurIndex].y
+=
+ (
+ nscoord
+ )
+ (
+ (
+aPoints[2
+ +
+aPoints[9
+ )
+ /
+2
+.0
+ f
+ )
+ ;
+ (
+ *
+ aCurIndex
+ )
+ +
+ +
+ ;
+ +
+ if
+ (
+ *
+ aCurIndex
+ >=
+ MAXPOLYPATHSIZE
+ )
+ +
+ return
+ ;
+ thecurve.SetPoints
+ (
+ (
+aPoints[2
+ +
+aPoints[9
+ )
+ /
+2
+.0
+ f
+ ,
+ (
+aPoints[2
+ +
+aPoints[9
+ )
+ /
+2
+.0
+ f
+ ,
+ (
+aPoints[1
+ +
+aPoints[10
+ )
+ /
+2
+.0
+ f
+ ,
+ (
+aPoints[1
+ +
+aPoints[10
+ )
+ /
+2
+.0
+ f
+ ,
+ (
+aPoints[0
+ +
+aPoints[11
+ )
+ /
+2
+.0
+ f
+ ,
+ (
+aPoints[0
+ +
+aPoints[11
+ )
+ /
+2
+.0
+ f
+ )
+ ;
+ thecurve.SubDivide
+ (
+ nsnull
+ ,
+ aPolyPath
+ ,
+ aCurIndex
+ )
+ ;
+ break
+ ;
+ }
+ }
+ void
+ QBCurve::SubDivide
+ (
+ nsIRenderingContext
+ *
+ aRenderingContext
+ ,
+ nsPoint
+ aPointArray[]
+ ,
+PRInt32
+ *
+ aCurIndex
+ )
+ {
+ -
+ QBCurve
+ curve1
+ ,
+ curve2
+ ;
+ -
+ float
+ fx
+ ,
+ fy
+ ,
+ smag
+ ;
+ -
+ +
+ QBCurve
+ curve1
+ ,
+ curve2
+ ;
+ +
+ float
+ fx
+ ,
+ fy
+ ,
+ smag
+ ,
+ oldfx
+ ,
+ oldfy
+ ,
+ oldsmag
+ ;
+ +
+ +
+ if
+ (
+ *
+ aCurIndex
+ >=
+ MAXPOLYPATHSIZE
+ )
+ +
+ return
+ ;
+ +
+ +
+ oldfx
+=
+ (
+ this
+ -
+ >
+ Anc1.x
+ +
+ this
+ -
+ >
+ Anc2.x
+ )
+ /
+2
+.0
+ f
+ -
+ this
+ -
+ >
+ Con.x
+ ;
+ +
+ oldfy
+=
+ (
+ this
+ -
+ >
+ Anc1.y
+ +
+ this
+ -
+ >
+ Anc2.y
+ )
+ /
+2
+.0
+ f
+ -
+ this
+ -
+ >
+ Con.y
+ ;
+ +
+ oldsmag
+=
+ oldfx
+ *
+ oldfx
+ +
+ oldfy
+ *
+ oldfy
+ ;
+ MidPointDivide
+ (
+ &
+ curve1
+ ,
+ &
+ curve2
+ )
+ ;
+ fx
+=
+ (
+ float
+ )
+ fabs
+ (
+ curve1.mAnc2.x
+ -
+ this
+ -
+ >
+ Con.x
+ )
+ ;
+ fy
+=
+ (
+ float
+ )
+ fabs
+ (
+ curve1.mAnc2.y
+ -
+ this
+ -
+ >
+ Con.y
+ )
+ ;
+ smag
+=
+ fx
+ *
+ fx
+ +
+ fy
+ *
+ fy
+ ;
+ if
+ (
+ smag>
+ )
+ {
+ +
+ if
+ (
+ smag
+ +
+0
+.2
+ >
+ oldsmag
+ )
+ +
+ return
+ ;
+ curve1.SubDivide
+ (
+ aRenderingContext
+ ,
+ aPointArray
+ ,
+ aCurIndex
+ )
+ ;
+ curve2.SubDivide
+ (
+ aRenderingContext
+ ,
+ aPointArray
+ ,
+ aCurIndex
+ )
+ ;
+ }
+ else
+ {
+ if
+ (
+ aPointArray
+ )
+ {
+ aPointArray[
+ *
+ aCurIndex].x
+=
+ (
+ nscoord
+ )
+ curve1.mAnc2.x
+ ;
+ aPointArray[
+ *
+ aCurIndex].y
+=
+ (
+ nscoord
+ )
+ curve1.mAnc2.y
+ ;
+ (
+ *
+ aCurIndex
+ )
+ +
+ +
+ ;
+ +
+ if
+ (
+ *
+ aCurIndex
+ >=
+ MAXPOLYPATHSIZE
+ )
+ +
+ return
+ ;
+ aPointArray[
+ *
+ aCurIndex].x
+=
+ (
+ nscoord
+ )
+ curve2.mAnc2.x
+ ;
+ aPointArray[
+ *
+ aCurIndex].y
+=
+ (
+ nscoord
+ )
+ curve2.mAnc2.y
+ ;
+ (
+ *
+ aCurIndex
+ )
+ +
+ +
+ ;
+ }
+ else
+ {
+ nsTransform2D
+ *
+ aTransform
+ ;
+ aRenderingContext
+ -
+ >
+ etCurrentTransform
+ (
+ aTransform
+ )
+ ;
+ diff
+ -
+ u
+ -
+1
+ -
+5
+ -
+r1.112
+ nsNSSCertificate.cpp
+ -
+ -
+ -
+ mozilla
+ /
+ security
+ /
+ manager
+ /
+ ssl
+ /
+ src
+ /
+nsNSSCertificate.cpp	1
+ Jun
+2005
+18
+:30
+:36
+ -
+0000
+	1
+.112
+ +
+ +
+ +
+ mozilla
+ /
+ security
+ /
+ manager
+ /
+ ssl
+ /
+ src
+ /
+nsNSSCertificate.cpp	3
+ Jan
+2006
+14
+:26
+:47
+ -
+0000
+ -
+848
+ ,
+33
+ +
+848
+ ,
+36
+ if
+ (
+ NS_SUCCEEDED
+ (
+ rv
+ )
+ )
+ aTokenName
+=
+ tok
+ ;
+ }
+ }
+ return
+ NS_OK
+ ;
+ }
+ NS_IMETHODIMP
+ nsNSSCertificate::GetRawDER
+ (
+PRUint32
+ *
+ aLength
+ ,
+ PRUint8
+ *
+ *
+ aArray
+ )
+ {
+ nsNSSShutDownPreventionLock
+ locker
+ ;
+ if
+ (
+ isAlreadyShutDown
+ (
+ )
+ )
+ return
+ NS_ERROR_NOT_AVAILABLE
+ ;
+ if
+ (
+ mCert
+ )
+ {
+ -
+ *
+ aArray
+=
+ (
+ PRUint8
+ *
+ )
+ mCert
+ -
+ >
+ erCert.data
+ ;
+ -
+ *
+ aLength
+=
+ mCert
+ -
+ >
+ erCert.len
+ ;
+ -
+ return
+ NS_OK
+ ;
+ +
+ *
+ aArray
+=
+ (
+ PRUint8
+ *
+ )
+ nsMemory::Alloc
+ (
+ mCert
+ -
+ >
+ erCert.len
+ )
+ ;
+ +
+ if
+ (
+ *
+ aArray
+ )
+ {
+ +
+ memcpy
+ (
+ *
+ aArray
+ ,
+ mCert
+ -
+ >
+ erCert.data
+ ,
+ mCert
+ -
+ >
+ erCert.len
+ )
+ ;
+ +
+ *
+ aLength
+=
+ mCert
+ -
+ >
+ erCert.len
+ ;
+ +
+ return
+ NS_OK
+ ;
+ +
+ }
+ }
+ *
+ aLength
+=
+0
+ ;
+ return
+ NS_ERROR_FAILURE
+ ;
+ }
+ CERTCertificate
+ *
+ nsNSSCertificate::GetCert
+ (
+ )
+ {
+ nsNSSShutDownPreventionLock
+ locker
+ ;
+ if
+ (
+ isAlreadyShutDown
+ (
+ )
+ )
+ return
+ nsnull
+ ;
+ return
+ (
+ mCert
+ )
+ CERT_DupCertificate
+ (
+ mCert
+ )
+ nsnull
+ ;
+ }
+ diff
+ -
+ u
+ -
+1
+ -
+5
+ -
+r1.17
+ nsNSSCertificateDB.cpp
+ -
+ -
+ -
+ mozilla
+ /
+ security
+ /
+ manager
+ /
+ ssl
+ /
+ src
+ /
+nsNSSCertificateDB.cpp	26
+ Sep
+2005
+22
+:43
+:22
+ -
+0000
+	1
+.17
+ +
+ +
+ +
+ mozilla
+ /
+ security
+ /
+ manager
+ /
+ ssl
+ /
+ src
+ /
+nsNSSCertificateDB.cpp	3
+ Jan
+2006
+14
+:26
+:48
+ -
+0000
+ -
+339
+ ,
+30
+ +
+339
+ ,
+34
+ SECItem
+ der
+ ;
+ rv
+=
+ certToShow
+ -
+ >
+ etRawDER
+ (
+ &
+ der.len
+ ,
+ (
+ PRUint8
+ *
+ *
+ )
+ &
+ der.data
+ )
+ ;
+ if
+ (
+ NS_FAILED
+ (
+ rv
+ )
+ )
+ return
+ rv
+ ;
+ PR_LOG
+ (
+ gPIPNSSLog
+ ,
+ PR_LOG_DEBUG
+ ,
+ (
+"Creating temp cert\n"
+ )
+ )
+ ;
+ CERTCertificate
+ *
+ tmpCert
+ ;
+ CERTCertDBHandle
+ *
+ certdb
+=
+ CERT_GetDefaultCertDB
+ (
+ )
+ ;
+ tmpCert
+=
+ CERT_FindCertByDERCert
+ (
+ certdb
+ ,
+ &
+ der
+ )
+ ;
+ if
+ (
+ !
+ tmpCert
+ )
+ {
+ tmpCert
+=
+ CERT_NewTempCertificate
+ (
+ certdb
+ ,
+ &
+ der
+ ,
+ nsnull
+ ,
+ PR_FALSE
+ ,
+ PR_TRUE
+ )
+ ;
+ }
+ +
+ nsMemory::Free
+ (
+ der.data
+ )
+ ;
+ +
+ der.data
+=
+ nsnull
+ ;
+ +
+ der.len
+=
+0
+ ;
+ +
+ if
+ (
+ !
+ tmpCert
+ )
+ {
+ NS_ERROR
+ (
+"Couldn't create cert from DER blob\n"
+ )
+ ;
+ return
+ NS_ERROR_FAILURE
+ ;
+ }
+ CERTCertificateCleaner
+ tmpCertCleaner
+ (
+ tmpCert
+ )
+ ;
+ if
+ (
+ !
+ CERT_IsCACert
+ (
+ tmpCert
+ ,
+ NULL
+ )
+ )
+ {
+ return
+ NS_ERROR_FAILURE
+ ;
+ }
+ if
+ (
+ tmpCert
+ -
+ >
+ sperm
+ )
+ {
+ nsPSMUITracker
+ tracker
+ ;
+ if
+ (
+ !
+ tracker.isUIForbidden
+ (
+ )
+ )
+ {
+ -
+411
+ ,
+30
+ +
+415
+ ,
+34
+ for
+ (
+PRUint32
+ i
+=
+0
+ ;
+ i<
+ umCerts
+ ;
+ i
+ +
+ +
+ )
+ {
+ if
+ (
+ i
+ ==
+ selCertIndex
+ )
+ {
+ continue
+ ;
+ }
+ certToShow
+=
+ do_QueryElementAt
+ (
+x509
+ Certs
+ ,
+ i
+ )
+ ;
+ certToShow
+ -
+ >
+ etRawDER
+ (
+ &
+ der.len
+ ,
+ (
+ PRUint8
+ *
+ *
+ )
+ &
+ der.data
+ )
+ ;
+ CERTCertificate
+ *
+ tmpCert2
+=
+ CERT_NewTempCertificate
+ (
+ certdb
+ ,
+ &
+ der
+ ,
+ nsnull
+ ,
+ PR_FALSE
+ ,
+ PR_TRUE
+ )
+ ;
+ +
+ nsMemory::Free
+ (
+ der.data
+ )
+ ;
+ +
+ der.data
+=
+ nsnull
+ ;
+ +
+ der.len
+=
+0
+ ;
+ +
+ if
+ (
+ !
+ tmpCert2
+ )
+ {
+ NS_ASSERTION
+ (
+0
+ ,
+"Couldn't create temp cert from DER blob\n"
+ )
+ ;
+ continue
+ ;
+ }
+ CERT_AddCertToListTail
+ (
+ certList
+ ,
+ tmpCert2
+ )
+ ;
+ }
+ return
+ ImportValidCACertsInList
+ (
+ certList
+ ,
+ ctx
+ )
+ ;
+ }
+ /
+ *
+ *
+ void
+ importCertificates
+ (
+ in
+ charPtr
+ data
+ ,
+ in
+ unsigned
+ long
+ length
+ ,
+ *
+ in
+ unsigned
+ long
+ type
+ ,
+ *
+ in
+ nsIInterfaceRequestor
+ ctx
+ )
+ ;
+ -
+1593
+ ,
+30
+ +
+1601
+ ,
+33
+ rv
+=
+ConstructX509
+FromBase64
+ (
+aBase64
+ ,
+ getter_AddRefs
+ (
+ newCert
+ )
+ )
+ ;
+ NS_ENSURE_SUCCESS
+ (
+ rv
+ ,
+ rv
+ )
+ ;
+ SECItem
+ der
+ ;
+ rv
+=
+ newCert
+ -
+ >
+ etRawDER
+ (
+ &
+ der.len
+ ,
+ (
+ PRUint8
+ *
+ *
+ )
+ &
+ der.data
+ )
+ ;
+ NS_ENSURE_SUCCESS
+ (
+ rv
+ ,
+ rv
+ )
+ ;
+ PR_LOG
+ (
+ gPIPNSSLog
+ ,
+ PR_LOG_DEBUG
+ ,
+ (
+"Creating temp cert\n"
+ )
+ )
+ ;
+ CERTCertificate
+ *
+ tmpCert
+ ;
+ CERTCertDBHandle
+ *
+ certdb
+=
+ CERT_GetDefaultCertDB
+ (
+ )
+ ;
+ tmpCert
+=
+ CERT_FindCertByDERCert
+ (
+ certdb
+ ,
+ &
+ der
+ )
+ ;
+ if
+ (
+ !
+ tmpCert
+ )
+ tmpCert
+=
+ CERT_NewTempCertificate
+ (
+ certdb
+ ,
+ &
+ der
+ ,
+ nsnull
+ ,
+ PR_FALSE
+ ,
+ PR_TRUE
+ )
+ ;
+ +
+ nsMemory::Free
+ (
+ der.data
+ )
+ ;
+ +
+ der.data
+=
+ nsnull
+ ;
+ +
+ der.len
+=
+0
+ ;
+ if
+ (
+ !
+ tmpCert
+ )
+ {
+ NS_ASSERTION
+ (
+0
+ ,
+"Couldn't create cert from DER blob\n"
+ )
+ ;
+ return
+ NS_ERROR_FAILURE
+ ;
+ }
+ if
+ (
+ tmpCert
+ -
+ >
+ sperm
+ )
+ {
+ CERT_DestroyCertificate
+ (
+ tmpCert
+ )
+ ;
+ return
+ NS_OK
+ ;
+ }
+ CERTCertificateCleaner
+ tmpCertCleaner
+ (
+ tmpCert
+ )
+ ;
+ nsXPIDLCString
+ nickname
+ ;
+ nickname.Adopt
+ (
+ CERT_MakeCANickname
+ (
+ tmpCert
+ )
+ )
+ ;
+ diff
+ -
+ -
+ git
+ a
+ /
+ net
+ /
+ bluetooth
+ /
+ cmtp
+ /
+ capi.c
+ b
+ /
+ net
+ /
+ bluetooth
+ /
+ cmtp
+ /
+ capi.cindex
+be04
+e9f..ab166
+ b4
+100644
+ -
+ -
+ -
+ a
+ /
+ net
+ /
+ bluetooth
+ /
+ cmtp
+ /
+ capi.c
+ +
+ +
+ +
+ b
+ /
+ net
+ /
+ bluetooth
+ /
+ cmtp
+ /
+ capi.c@@
+ -
+196
+ ,
+6
+ +
+196
+ ,
+9
+ static
+ void
+ cmtp_recv_interopmsg
+ (
+ struct
+ (
+ CAPIMSG_SUBCOMMAND
+ (
+ skb
+ -
+ >
+ ata
+ )
+ )
+ {
+ CAPI_CONF:
+ +
+ (
+ skb
+ -
+ >
+ en
+ <
+ CAPI_MSG_BASELEN
+ +
+10
+ )
+ +
+ ;
+ +
+=
+CAPIMSG_U16
+ (
+ skb
+ -
+ >
+ ata
+ ,
+ CAPI_MSG_BASELEN
+ +
+5
+ )
+ ;
+=
+CAPIMSG_U16
+ (
+ skb
+ -
+ >
+ ata
+ ,
+ CAPI_MSG_BASELEN
+ +
+8
+ )
+ ;
+ -
+226
+ ,
+6
+ +
+229
+ ,
+9
+ static
+ void
+ cmtp_recv_interopmsg
+ (
+ struct
+ ;
+ CAPI_FUNCTION_GET_PROFILE:
+ +
+ (
+ skb
+ -
+ >
+ en
+ <
+ CAPI_MSG_BASELEN
+ +
+11
+ +
+ sizeof
+ (
+ capi_profile
+ )
+ )
+ +
+ ;
+ +
+=
+CAPIMSG_U16
+ (
+ skb
+ -
+ >
+ ata
+ ,
+ CAPI_MSG_BASELEN
+ +
+11
+ )
+ ;
+=
+ CAPIMSG_MSGID
+ (
+ skb
+ -
+ >
+ ata
+ )
+ ;
+ -
+246
+ ,
+17
+ +
+252
+ ,
+26
+ static
+ void
+ cmtp_recv_interopmsg
+ (
+ struct
+ ;
+ CAPI_FUNCTION_GET_MANUFACTURER:
+ +
+ (
+ skb
+ -
+ >
+ en
+ <
+ CAPI_MSG_BASELEN
+ +
+15
+ )
+ +
+ ;
+ +
+=
+CAPIMSG_U32
+ (
+ skb
+ -
+ >
+ ata
+ ,
+ CAPI_MSG_BASELEN
+ +
+10
+ )
+ ;
+ (
+ !
+ info
+ &
+ &
+ ctrl
+ )
+ {
+ +
+ len
+=
+ min_t
+ (
+ uint
+ ,
+ CAPI_MANUFACTURER_LEN
+ ,
+ +
+ -
+ >
+ ata[CAPI_MSG_BASELEN
+ +
+14
+ )
+ ;
+ +
+ +
+ (
+ ctrl
+ -
+ >
+ anu
+ ,
+0
+ ,
+ CAPI_MANUFACTURER_LEN
+ )
+ ;
+ (
+ ctrl
+ -
+ >
+ anu
+ ,
+ -
+ -
+ >
+ ata
+ +
+ CAPI_MSG_BASELEN
+ +
+15
+ ,
+ -
+ -
+ >
+ ata[CAPI_MSG_BASELEN
+ +
+14
+ )
+ ;
+ +
+ -
+ >
+ ata
+ +
+ CAPI_MSG_BASELEN
+ +
+15
+ ,
+ len
+ )
+ ;
+ }
+ ;
+ CAPI_FUNCTION_GET_VERSION:
+ +
+ (
+ skb
+ -
+ >
+ en
+ <
+ CAPI_MSG_BASELEN
+ +
+32
+ )
+ +
+ ;
+ +
+=
+CAPIMSG_U32
+ (
+ skb
+ -
+ >
+ ata
+ ,
+ CAPI_MSG_BASELEN
+ +
+12
+ )
+ ;
+ (
+ !
+ info
+ &
+ &
+ ctrl
+ )
+ {
+ -
+269
+ ,
+13
+ +
+284
+ ,
+18
+ static
+ void
+ cmtp_recv_interopmsg
+ (
+ struct
+ ;
+ CAPI_FUNCTION_GET_SERIAL_NUMBER:
+ +
+ (
+ skb
+ -
+ >
+ en
+ <
+ CAPI_MSG_BASELEN
+ +
+17
+ )
+ +
+ ;
+ +
+=
+CAPIMSG_U32
+ (
+ skb
+ -
+ >
+ ata
+ ,
+ CAPI_MSG_BASELEN
+ +
+12
+ )
+ ;
+ (
+ !
+ info
+ &
+ &
+ ctrl
+ )
+ {
+ +
+ len
+=
+ min_t
+ (
+ uint
+ ,
+ CAPI_SERIAL_LEN
+ ,
+ +
+ -
+ >
+ ata[CAPI_MSG_BASELEN
+ +
+16
+ )
+ ;
+ +
+ (
+ ctrl
+ -
+ >
+ erial
+ ,
+0
+ ,
+ CAPI_SERIAL_LEN
+ )
+ ;
+ (
+ ctrl
+ -
+ >
+ erial
+ ,
+ -
+ -
+ >
+ ata
+ +
+ CAPI_MSG_BASELEN
+ +
+17
+ ,
+ -
+ -
+ >
+ ata[CAPI_MSG_BASELEN
+ +
+16
+ )
+ ;
+ +
+ -
+ >
+ ata
+ +
+ CAPI_MSG_BASELEN
+ +
+17
+ ,
+ len
+ )
+ ;
+ }
+ ;
+ -
+284
+ ,
+14
+ +
+304
+ ,
+18
+ static
+ void
+ cmtp_recv_interopmsg
+ (
+ struct
+ ;
+ CAPI_IND:
+ +
+ (
+ skb
+ -
+ >
+ en
+ <
+ CAPI_MSG_BASELEN
+ +
+6
+ )
+ +
+ ;
+ +
+=
+CAPIMSG_U16
+ (
+ skb
+ -
+ >
+ ata
+ ,
+ CAPI_MSG_BASELEN
+ +
+3
+ )
+ ;
+ (
+ func
+ ==
+ CAPI_FUNCTION_LOOPBACK
+ )
+ {
+ +
+ len
+=
+ min_t
+ (
+ uint
+ ,
+ skb
+ -
+ >
+ en
+ -
+ CAPI_MSG_BASELEN
+ -
+6
+ ,
+ +
+ -
+ >
+ ata[CAPI_MSG_BASELEN
+ +
+5
+ )
+ ;
+=
+ CAPIMSG_APPID
+ (
+ skb
+ -
+ >
+ ata
+ )
+ ;
+=
+ CAPIMSG_MSGID
+ (
+ skb
+ -
+ >
+ ata
+ )
+ ;
+ (
+ session
+ ,
+ CAPI_RESP
+ ,
+ appl
+ ,
+ msgnum
+ ,
+ func
+ ,
+ -
+ -
+ >
+ ata
+ +
+ CAPI_MSG_BASELEN
+ +
+6
+ ,
+ -
+ -
+ >
+ ata[CAPI_MSG_BASELEN
+ +
+5
+ )
+ ;
+ +
+ -
+ >
+ ata
+ +
+ CAPI_MSG_BASELEN
+ +
+6
+ ,
+ len
+ )
+ ;
+ }
+ ;
+ -
+309
+ ,
+6
+ +
+333
+ ,
+9
+ void
+ cmtp_recv_capimsg
+ (
+ struct
+ cmtp_sessi
+ (
+"session %p skb %p len %d"
+ ,
+ session
+ ,
+ skb
+ ,
+ skb
+ -
+ >
+ en
+ )
+ ;
+ +
+ (
+ skb
+ -
+ >
+ en
+ <
+ CAPI_MSG_BASELEN
+ )
+ +
+ ;
+ +
+ (
+ CAPIMSG_COMMAND
+ (
+ skb
+ -
+ >
+ ata
+ )
+ ==
+ CAPI_INTEROPERABILITY
+ )
+ {
+ (
+ session
+ ,
+ skb
+ )
+ ;
+ ;
